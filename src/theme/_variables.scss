@@ -1,0 +1,83 @@
+$color_list: (
+  primary: rgb(153, 153, 153),
+  secondary: #FCFCFC,
+  terenary: #FF9026, //orange
+  quad: #000000,
+  validated: #00B800,
+  input_bg: rgb(237, 237, 237),
+  orange: #FF8726,
+  background: #EDF1F5,
+  text-color: darkgrey,
+  light-grey: #666666,
+  light-grey-op1: #676767,
+  light-grey-op: #66666640,
+  light-grey-op-1: #66666600,
+  input-field-box: #f7f7f7,
+  light_orange: #ff872605,
+  make-it-black: #231F20,
+  error: #ff3d26,
+  bee-primary: #FF8D26,
+  grayColor: #aaaaaa
+);
+
+// Font-sizes
+$font-list: (
+  xs: 2px,
+  xs-1: 12px,
+  small: 13px,
+  sm-1: 14px,
+  sm: 16px,
+  sm1: 18px,
+  md1: 26px,
+  md_1: 24px,
+  md: 20px,
+  lg: 36px,
+  o8: 0.8rem,
+  xl: 1.8rem,
+  h1: 2.6rem,
+  h2: 2.4rem,
+  h5: 1.8rem
+);
+
+
+// Font-sizes
+$design-constant: (
+  radius: 10px,
+  border-stroke: 1px,
+  input-padding-top-bottom: 5px,
+  input-padding-left-right: 20px,
+  popup-padding: 0px 60px 30px 60px,
+  input_radius: 12px,
+  input_height: 45px,
+  button_height: 50px,
+  text_area: 100px,
+  item_radius: 15px
+);
+
+
+// size of screens for media quiries
+$phone-width: 600px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@mixin phone {
+  @media (max-width: #{phone-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+$item-width: 252px;
+$item-width-margin: 10px;
+$item-four-wide-width: ($item-width * 4) + ( $item-width-margin * 8) - ($item-width-margin * 2)

@@ -1,1 +1,188 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./theme/variables";
+@import "~src/app/fonts";
+
+.create--item {
+  .container .box {
+    width: 540px;
+  }
+
+  .input-field {
+    width: 100%;
+  }
+
+  .label {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+  }
+}
+
+.input-field {
+  display: flex;
+  box-sizing: border-box;
+  border-radius: map_get($design-constant, radius);
+  background: map_get($color_list, input-field-box);
+  font-family: "Nunito", serif;
+  font-size: map_get($font-list, md);
+  color: rgba(0, 0, 0, 0.75); //map_get($color_list, secondary);
+  padding: map_get($design-constant, input-padding-top-bottom)
+  map_get($design-constant, input-padding-left-right);
+  height: map_get($design-constant, input_height);
+  margin-top: 5px;
+  border: 0;
+
+  &:focus {
+    border: map_get($design-constant, border-stroke) solid
+    map_get($color_list, terenary);
+    background: map_get($color_list, secondary) !important;
+    // color: map_get($color_list, terenary);
+    outline: none;
+
+    + label {
+      color: map_get($color_list, terenary);
+    }
+  }
+
+  @each $name, $size in $font-list {
+    &.#{$name} {
+      font-size: $size;
+    }
+  }
+
+  @each $name, $height in $design-constant {
+    &.#{$name} {
+      height: $height;
+      width: 100%;
+      background: map_get($color_list, input_bg) !important;
+    }
+  }
+
+  &.full-width {
+    width: 100%;
+  }
+
+  &.no-border {
+    border: none;
+  }
+
+  &.input-rounded {
+    border-radius: 20px;
+  }
+
+  &.number_right {
+    text-align: right;
+  }
+
+  //&.focus {
+  //  border-color: map_get($color_list, terenary) !important;
+  //}
+}
+
+.button-container_center {
+  display: flex;
+  justify-content: center;
+}
+
+
+.app-create-item {
+  file-uploader {
+    .uploader-container {
+      width: 135px;
+    }
+  }
+
+  .item-file-uploader .uploader-container .image-viewer {
+    width: 135px;
+
+    img {
+      object-fit: cover;
+    }
+  }
+}
+
+
+.item-file-uploader {
+  .uploader-container {
+    position: relative;
+    height: 100px;
+    width: 150px;
+    display: flex;
+
+    .retry-overlay {
+      border-radius: 16px;
+    }
+
+    .image-viewer {
+      width: 150px;
+      height: 100px;
+      border-radius: 16px;
+
+      img {
+        border-radius: 16px;
+      }
+    }
+
+    .uploader-title {
+      width: 135px;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .image--placeholder {
+        background: url("/assets/svg/plus.svg") no-repeat;
+        width: 25px;
+        height: 25px;
+      }
+
+      //display: none;
+    }
+
+    .custom-tooltip {
+      display: none;
+
+      :hover {
+        visibility: hidden;
+      }
+    }
+
+    :hover {
+      .custom-tooltip {
+        visibility: hidden;
+      }
+    }
+  }
+}
+
+.align_item_center {
+  align-items: center;
+  text-align: center;
+  align-self: center;
+}
+
+.label {
+  font-size: map_get($font-list, sm);
+  color: map_get($color_list, text-color);
+  font-family: "Nunito", serif;
+  text-transform: lowercase !important;
+
+  @each $name, $size in $font-list {
+    &.#{$name} {
+      font-size: $size;
+    }
+  }
+
+  @each $name, $color in $color_list {
+    &.#{$name} {
+      color: $color;
+    }
+  }
+
+  &.font_abs {
+    font-family: "montserrat", serif;
+  }
+
+  .icon {
+    display: none;
+  }
+}

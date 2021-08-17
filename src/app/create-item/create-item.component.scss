@@ -1,0 +1,459 @@
+@import "../../theme/variables";
+@import "src/app/fonts";
+
+.app-create-item {
+  padding: 20px;
+  width: 450px;
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="date"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="date"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .lend--free__info {
+    padding: 0px 1px;
+    width: 12px;
+    vertical-align: super;
+  }
+
+  .lend_text {
+    height: 100%;
+    vertical-align: super;
+    padding: 5px;
+    color: map_get($color_list, quad);
+    font-size: map_get($font-list, sm-1);
+    font-family: "Nunito";
+  }
+
+  .inactive-color {
+    background: map_get($color_list, primary) !important;
+
+    :focus {
+      background: map_get($color_list, primary) !important;
+    }
+  }
+
+  .regular-checkbox {
+    outline: none;
+    -webkit-appearance: none;
+    background-color: white;
+    border: 1px solid #cacece;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05),
+      inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    position: relative;
+
+    &:checked {
+      background-color: map_get($color_list, orange);
+      border: 1px solid map_get($color_list, orange);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05),
+        inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05),
+        inset 15px 10px -12px rgba(255, 255, 255, 0.1);
+      color: #99a1a7;
+    }
+
+    &:checked:after {
+      content: "\2713";
+      font-size: 17px;
+      position: absolute;
+      top: 0px;
+      left: 3px;
+      background: map_get($color_list, orange);
+      color: map_get($color_list, secondary);
+    }
+  }
+
+  .uploader-container {
+    width: 135px;
+    height: 100px;
+  }
+
+  .validation-alert {
+    color: red;
+  }
+
+  .label {
+    padding-bottom: 0px;
+    padding-top: 0px;
+  }
+
+  /* textarea {
+     background: map_get($color_list, input_bg) !important;
+   }*/
+  .text_area {
+    z-index: 0 !important;
+    display: flex;
+    resize: none;
+    box-sizing: border-box;
+    border: none;
+    border-radius: map_get($design-constant, radius);
+    background: map_get($color_list, input_bg) !important;
+    font-family: "Nunito";
+    font-size: map_get($font-list, md);
+    color: rgba(0, 0, 0, 0.75); //map_get($color_list, secondary);
+    padding: map_get($design-constant, input-padding-top-bottom)
+      map_get($design-constant, input-padding-left-right);
+    height: 100px;
+    margin-top: 5px;
+    width: 100%;
+
+    &:focus {
+      z-index: 0 !important;
+      border: map_get($design-constant, border-stroke) solid
+        map_get($color_list, terenary);
+      background: map_get($color_list, secondary) !important;
+      // color: map_get($color_list, terenary);
+      outline: none;
+    }
+
+    @each $name, $size in $font-list {
+      &.#{$name} {
+        font-size: $size;
+      }
+    }
+  }
+
+  .category-list-container {
+    /* to remove default dropdown from select box */
+    //select {
+    //  -moz-appearance:none; /* Firefox */
+    //  -webkit-appearance:none; /* Safari and Chrome */
+    //  appearance:none;
+    //}
+  }
+
+  .category-list {
+    width: 60%;
+    height: 45px;
+    display: block;
+    border: none;
+    background: #ededed;
+    outline: none;
+    /* padding: 50px; */
+    border-radius: 10px;
+    text-indent: 12px;
+    font-size: 18px;
+    color: #666666;
+    font-weight: lighter;
+  }
+
+  .item-list {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    height: 100%;
+    justify-content: space-between;
+
+    .item-list__image {
+      width: 30%;
+      margin: 1%;
+      border: 2px dashed rgba(0, 0, 0, 0.49);
+      border-radius: 16px;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  .item-tile {
+    label {
+      padding-bottom: 5px;
+    }
+  }
+
+  .provide-padding-bottom {
+    padding-bottom: 3px;
+  }
+
+  .provide-padding-right {
+    padding-right: 15px;
+  }
+
+  .terms-condition {
+    display: flex;
+    justify-content: center;
+
+    label {
+      text-decoration: underline;
+      text-decoration-color: map_get($color_list, terenary);
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .visibility-container {
+    padding-top: 5px;
+    display: flex;
+    justify-content: end;
+
+    .label_public {
+      padding-right: 10px;
+      padding-left: 5px;
+    }
+
+    .label_private {
+      padding-left: 10px;
+    }
+  }
+
+  .item-insurance {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    label {
+      text-transform: none !important;
+    }
+  }
+
+  .input-field {
+    width: 100%;
+    border: none;
+    word-wrap: break-word;
+    word-break: break-all;
+    background: map_get($color_list, input_bg);
+
+    &:focus {
+      background: white;
+      border: thin solid map_get($color_list, terenary);
+
+      + label {
+        color: map_get($color_list, terenary);
+      }
+    }
+  }
+
+  .set--active {
+    color: map_get($color_list, terenary);
+  }
+
+  .item-info {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+  }
+
+  popup-container {
+    .box {
+      display: block;
+      border-radius: 10px;
+      height: fit-content;
+      min-width: 540px;
+      background: white;
+      position: relative;
+    }
+  }
+
+  .button-container {
+    margin-top: 10px !important;
+    display: flex;
+    justify-content: space-around !important;
+  }
+
+  .provide-margin__button {
+    margin: 0px 10px;
+  }
+
+  .item-share {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 -5px;
+  }
+
+  .item-share__rate {
+    display: flex;
+    flex-direction: column;
+    margin: 0 5px;
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      margin: 0;
+    }
+  }
+
+  .item-share__lend {
+    align-self: center;
+    margin-bottom: 15px;
+  }
+
+  .item-share__description {
+    width: 100%;
+    padding: 20px 0px 0px 0px;
+  }
+
+  .item-stage__navigation {
+    //margin-top: 10px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .item-value__description {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .tc_info {
+    padding: 0px 1px;
+    width: 12px;
+  }
+
+  .circle {
+    margin: 5px;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    background: #ffffff;
+    border: thin solid map_get($color_list, primary);
+
+    @each $name, $color in $color_list {
+      &.#{$name} {
+        background: $color;
+        border: thin solid $color;
+      }
+    }
+  }
+
+  input::placeholder {
+    color: map_get($color_list, primary);
+    font-size: map_get($font-list, sm1);
+    opacity: 0.7;
+  }
+
+  .content--selector {
+    font-size: map_get($font-list, small);
+    cursor: pointer;
+    color: map_get($color_list, terenary);
+  }
+}
+
+.onoffswitch {
+  position: relative;
+  width: 55px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.onoffswitch-checkbox {
+  display: none;
+}
+
+.onoffswitch-label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  height: 15px;
+  padding: 0;
+  line-height: 20px;
+  border: 0px solid #ffffff;
+  border-radius: 30px;
+  background-color: #ededed;
+}
+
+.onoffswitch-label:before {
+  content: "";
+  display: block;
+  width: 30px;
+  margin: -5px;
+  background: #ffffff;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 31px;
+  border-radius: 30px;
+  box-shadow: 0 6px 12px 0px #757575;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label {
+  background-color: #f2c08e;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label,
+.onoffswitch-checkbox:checked + .onoffswitch-label:before {
+  border-color: #f2c08e;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+  margin-left: 0;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label:before {
+  right: 0px;
+  background-color: #ff8726;
+  box-shadow: 3px 6px 18px 0px rgba(0, 0, 0, 0.2);
+}
+
+.item-creation__popup {
+  padding: 0px 50px 30px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .item-tc-pop-up {
+    width: 100%;
+    height: 400px;
+    overflow: auto;
+    padding: 15px;
+  }
+
+  .label {
+    padding-bottom: 10px;
+  }
+
+  .bold-font {
+    font-weight: 900;
+  }
+
+  .provide-padding-bottom_created {
+    padding-bottom: 20px;
+  }
+
+  select {
+    outline: map_get($color_list, orange);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .app-create-item {
+    width: 100%;
+    padding: 0px;
+
+    form {
+      padding: 0.5rem;
+    }
+
+    .button-container {
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+
+    .provide-margin__button {
+      margin-bottom: 1rem;
+    }
+
+    .item-list {
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+
+      .item-list__image {
+        width: auto;
+      }
+    }
+  }
+}

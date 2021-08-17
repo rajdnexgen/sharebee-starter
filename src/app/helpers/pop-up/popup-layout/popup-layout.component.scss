@@ -1,0 +1,61 @@
+@import '../../../../theme/variables';
+
+.app-pop-up-layout-container {
+  z-index: 1000;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(107, 95, 95, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: scroll;
+  padding: 30px;
+  box-sizing: border-box;
+  font-family: Nunito, serif;
+
+  &--tall{
+    align-items: flex-start;
+    padding-top: 45px;
+  }
+
+  .box {
+    display: block;
+    border-radius: map_get($design-constant, radius);
+    height: fit-content;
+    min-width: 300px;
+    max-width: 560px;
+    background: white;
+    position: relative;
+    padding-bottom: 15px;
+
+    .logo {
+      position:relative;
+      align-content: center;
+      display: flex;
+      justify-content: center;
+
+      img {
+        width:75px;
+        height:75px;
+        margin-top:-37.5px;
+      }
+    }
+  }
+
+  .title{
+    text-align: center;
+    font-family: 'montserrat', serif;
+    font-size: map_get($font-list, md);
+    color: map_get($color_list, orange);
+  }
+
+  .popup-actions {
+    @media screen and (max-width: 600px) {
+      flex-direction: column-reverse;
+    }
+  }
+}

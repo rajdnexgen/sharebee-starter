@@ -1,0 +1,29 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 15.56 7.78">
+  <defs>
+    <style>
+      .cls-1{fill:none;}.cls-2{clip-path:url(#clip-path);}.cls-3{clip-path:url(#clip-path-2);}.cls-4{fill:url(#radial-gradient);}.cls-5{fill:grey;}
+    </style>
+    <clipPath id="clip-path">
+      <polyline class="cls-1"
+                points="-430.44 -213.68 -286.1 -130.35 -286.1 36.32 -430.44 119.66 -574.78 36.32 -574.78 -130.35 -430.44 -213.68"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <polygon class="cls-1"
+               points="-430.44 -212.25 -573.54 -129.63 -573.54 35.61 -430.44 118.22 -287.34 35.61 -287.34 -129.63 -430.44 -212.25 -430.44 -212.25"/>
+    </clipPath>
+    <radialGradient id="radial-gradient" cx="530.29" cy="325.31" r="1148.85" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff8da"/>
+      <stop offset="0.4" stop-color="#ffe264"/>
+      <stop offset="1" stop-color="#fc9200"/>
+    </radialGradient>
+  </defs>
+  <title>dropdown</title>
+  <g class="cls-2">
+    <g class="cls-3">
+      <rect class="cls-4" x="-645.82" y="-336.25" width="2352.22" height="1323.12"/>
+    </g>
+  </g>
+  <path class="cls-5"
+        d="M14,.42a1,1,0,0,0-1.37,0l-4.9,4.9L2.89.42A1,1,0,0,0,1.52,1.79L7.1,7.37a1,1,0,0,0,1.37,0L14,1.79A1,1,0,0,0,14,.42Z"/>
+</svg>

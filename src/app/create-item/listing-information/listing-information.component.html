@@ -1,0 +1,41 @@
+<div class="item-value__description">
+  <label class="label md1 orange font_abs">{{'CREATE_ITEM.PRIVATE' }}</label>
+  <label class="label sm-1 primary add-margin-top">{{'CREATE_ITEM.VISIBLE_OTHERS' }}</label>
+</div>
+<div class="item-value provide-padding-bottom add-margin-top">
+  <label class="label sm-1 primary"
+         [ngClass]="{'set--active': focusedElement === 'value'}">{{'CREATE_ITEM.VALUE' }}*</label>
+  <input type="number" class="input-field" (focus)="focusedElement = 'value'; validateItem.value = ''"
+         (blur)="focusedElement = ''" [(ngModel)]="itemObject.item_cost" name="itemObject.item_cost">
+  <p class="validation-alert">{{validateItem.value}}</p>
+</div>
+
+<div class="item-maintenance provide-padding-bottom">
+  <label class="label sm-1 primary"
+         [ngClass]="{'set--active': focusedElement === 'maintenance'}">{{'CREATE_ITEM.INFORMATION' }}</label>
+  <textarea class="text_area sm1" (focus)="focusedElement = 'maintenance'" (blur)="focusedElement = ''"
+            [(ngModel)]="itemObject.other_information" name="itemObject.maintenance"></textarea>
+  <p class="validation-alert">{{validateItem.maintenance}}</p>
+</div>
+
+<div class="item-service provide-padding-bottom">
+  <label class="label sm-1 primary"
+         [ngClass]="{'set--active': focusedElement === 'serviceDate'}">{{'CREATE_ITEM.SERVICE_DATE' }}</label>
+  <input *ngIf="!edit_item" type="date" class="input-field sm1" (focus)="focusedElement = 'serviceDate'"
+         (blur)="focusedElement = ''"
+         [(ngModel)]="itemObject.service_date" name="itemObject.serviceDate">
+  <label *ngIf="edit_item" class="input-field sm1">{{itemObject.service_date | date:'dd/MM/yyyy'}}</label>
+  <p class="validation-alert">{{validateItem.serviceDate}}</p>
+</div>
+
+<div class="item-insurance provide-padding-bottom">
+  <label class="label sm quad" *ngIf="!toc_accepted">{{'CREATE_ITEM.INSURANCE'}}
+    <img class="tc_info show--cursor" src="../../assets/svg/know_more.svg" (click)="tcInfo = !tcInfo"/>
+  </label>
+  <label class="label sm validated" *ngIf="toc_accepted">{{'CREATE_ITEM.INSURED_1'}}</label>
+  <label class="validation-alert">{{validateItem.toc_accepted}}</label>
+</div>
+<div class="terms-condition provide-padding-bottom">
+  <label class="label sm-1 terenary"
+         (click)="displayTermsCondition = !displayTermsCondition">{{'CREATE_ITEM.TC'}}</label>
+</div>

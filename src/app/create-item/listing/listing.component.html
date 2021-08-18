@@ -1,0 +1,59 @@
+<div class="item-list">
+  <div class="item-list__image">
+
+    <div
+      class="item-file-uploader">
+      <div class="uploader-title">
+        <div class="image--placeholder"></div>
+        <!--<img src="../../../assets/svg/plus.svg">-->
+        <!--Drag and drop or select-->
+      </div>
+    </div>
+  </div>
+
+  <div class="item-list__image">
+    <div
+      class="item-file-uploader">
+      <div class="uploader-title">
+        <div class="image--placeholder"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="item-list__image">
+    <div
+      class="item-file-uploader">
+      <div class="uploader-title">
+        <div class="image--placeholder"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="item-info align_item_center">
+  <label class="label small primary"> {{'CREATE_ITEM.DRAG_DROP' }} <span class="content--selector"
+   (click)="goToFAQ()">FAQ's</span> {{'CREATE_ITEM.DRAG_DROP_1' }}
+  </label>
+</div>
+<div class="item-tile">
+  <div class="provide-padding">
+    <label for="title" [ngClass]="{'set--active': focusedElement === 'title'}"
+           class="label sm-1 primary">{{'CREATE_ITEM.TITLE' }}</label>
+  </div>
+  <div>
+    <input id="title" (focus)="focusedElement = 'title'" (blur)="focusedElement = ''" class="input-field sm1"
+           name="title" required [(ngModel)]="itemObject.title"
+           required minlength="4">
+    <p class="validation-alert">{{validateItem.title}}</p>
+  </div>
+</div>
+<div class="item-tile">
+  <div class="provide-padding">
+    <label for="title" [ngClass]="{'set--active': focusedElement === 'location'}"
+           class="label sm-1 primary">{{"CREATE_ITEM.LOCATION" }}</label>
+  </div>
+  <div>
+    <input id="location" (focus)="focusedElement = 'location'" (blur)="focusedElement = ''"
+           class="input-field sm1" name="location" [(ngModel)]="itemObject.location" required minlength="2">
+    <p class="validation-alert">{{validateItem.location}}</p>
+  </div>
+</div>

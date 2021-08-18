@@ -1,11 +1,12 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
 import {Router} from '@angular/router';
 import {ItemAvailability, ItemObject, ItemSteps} from '../models/item.model';
 
 @Component({
   selector: 'app-create-item',
   templateUrl: './create-item.component.html',
-  styleUrls: ['./create-item.component.scss']
+  styleUrls: ['./create-item.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class CreateItemComponent implements OnInit {
   @Output() createItemFlag = new EventEmitter<boolean>();
@@ -43,11 +44,9 @@ export class CreateItemComponent implements OnInit {
       location: string
     } = Object;
   isFileUploaded?: boolean;
-  lend_free = false;
   uploadImage = ''; // 'http://localhost:8080/api/item/image/upload';
-  displayTermsCondition: boolean = false;
   categories: string[] = ['household', 'tools', 'transport', 'space', 'technology', 'clothing', 'children’s', 'recreation & health'];
-  isUserLoggedIn = false;
+  isUserLoggedIn = true;
   loggInPopUP: boolean = false;
 
   get can_go_next() {
@@ -65,9 +64,6 @@ export class CreateItemComponent implements OnInit {
       'assets/img/no_image_available.jpeg'];*/
   }
 
-  get itemRentIsActive(): boolean {
-    return ['day_rent', 'week_rent', 'month_rent'].indexOf(this.focusedElement) > -1;
-  }
 
   imageUploading(obj: any) {
   }
@@ -139,6 +135,7 @@ export class CreateItemComponent implements OnInit {
 
   // Validate the steps & call api
   createItem() {
+    console.log('itemObject', this.itemObject);
     if (this.isUserLoggedIn) {
       // @ts-ignore
       this.validateItem = {};
@@ -208,16 +205,7 @@ export class CreateItemComponent implements OnInit {
     }
   }
 
-  lendFree(event: any) {
-    if (event.target.checked) {
-      this.lend_free = event.target.checked;
-      this.itemObject.rent_rate = 0;
-      this.itemObject.rent_rate_per_week = 0;
-      this.itemObject.rent_rate_per_month = 0;
-    } else {
-      this.lend_free = !this.lend_free;
-    }
-  }
+
 
 
   accept() {
@@ -229,10 +217,6 @@ export class CreateItemComponent implements OnInit {
   close() {
     this.loggInPopUP = false;
     this.createItemFlag.emit(false);
-  }
-
-  goToFAQ() {
-    // this._router.navigate([RoutePaths.FAQ]);
   }
 
   loginUser() {

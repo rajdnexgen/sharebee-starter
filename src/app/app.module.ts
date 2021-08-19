@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {FormsModule} from "@angular/forms";
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { CreateItemModule } from './create-item/create-item.module';
 import { SharedModule } from './helpers/shared.module';
 
@@ -15,6 +16,7 @@ import { SharedModule } from './helpers/shared.module';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    FlexLayoutModule,
     SharedModule,
     CreateItemModule
   ],

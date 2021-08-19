@@ -1,6 +1,6 @@
 <!--<app-header-footer-layout>-->
-<popup-layout class="create--item">
-  <section class="app-create-item">
+<popup-layout class="create--item" fxLayout="row" fxFlex="100%">
+  <section class="app-create-item" fxFlex.lt-sm="100%">
     <form>
       <div *ngIf="currentState === ItemSteps.itemTitle">
         <app-listing [itemObject]="itemObject" [validateItem]="validateItem"></app-listing>
@@ -16,12 +16,13 @@
         <div class="circle" [ngClass]="{'terenary':currentState === ItemSteps.itemDescription}"></div>
         <div class="circle" [ngClass]="{'terenary':currentState === ItemSteps.itemValue}"></div>
       </div>
-      <div class="button-container">
+      <div class="button-container" fxLayout="row wrap" fxLayoutAlign="space-around center">
 <!--        <button class="button provide-margin__button" (click)="back()">{{previous}}</button>-->
-        <bee-btn type="secondary" (click)="back()">{{previous}}</bee-btn>
+        <bee-btn type="secondary" fxFlex="30%" fxFlex.xs="100%" (click)="back()">{{previous}}</bee-btn>
+        <div fxFlex="40%"></div>
         <!--<button type="submit" class="provide-margin__button button" [class.active]="can_go_next"
                 [disabled]="!can_go_next" [class.disabled]="!can_go_next" (click)="createItem()">{{next}}</button>-->
-        <bee-btn type="primary" (click)="createItem()" [class.active]="can_go_next"
+        <bee-btn type="primary" fxFlex="30%" fxFlex.xs="100%" (click)="createItem()" [class.active]="can_go_next"
                  [disabled]="!can_go_next" [class.disabled]="!can_go_next">{{next}}</bee-btn>
       </div>
     </form>

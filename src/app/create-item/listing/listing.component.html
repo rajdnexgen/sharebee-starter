@@ -1,40 +1,60 @@
-<div class="item-list">
-  <div class="item-list__image">
+<div class="item-list" fxLayout="row wrap" fxLayoutAlign="space-around center" fxLayoutGap="2%">
+  <div class="item-list-image" fxFlex="30%" fxFlex.xs="100%">
 
     <div
       class="item-file-uploader">
       <div class="uploader-title">
-        <div class="image--placeholder"></div>
+        <div class="image-placeholder"></div>
         <!--<img src="../../../assets/svg/plus.svg">-->
         <!--Drag and drop or select-->
       </div>
     </div>
   </div>
 
-  <div class="item-list__image">
+  <div class="item-list-image" fxFlex="32%" fxFlex.xs="100%">
     <div
       class="item-file-uploader">
       <div class="uploader-title">
-        <div class="image--placeholder"></div>
+        <div class="image-placeholder"></div>
       </div>
     </div>
   </div>
 
-  <div class="item-list__image">
+  <div class="item-list-image" fxFlex="32%" fxFlex.xs="100%">
     <div
       class="item-file-uploader">
       <div class="uploader-title">
-        <div class="image--placeholder"></div>
+        <div class="image-placeholder"></div>
       </div>
     </div>
   </div>
 </div>
-<div class="item-info align_item_center">
-  <label class="label small primary"> {{'CREATE_ITEM.DRAG_DROP' }} <span class="content--selector"
+<div class="item-padding" fxLayout="row" fxLayoutAlign="space-around center">
+  <label class="label small primary"> {{'CREATE_ITEM.DRAG_DROP' }} <span class="content-selector"
    (click)="goToFAQ()">FAQ's</span> {{'CREATE_ITEM.DRAG_DROP_1' }}
   </label>
 </div>
-<div class="item-tile">
+<div class="item-padding" fxLayout="row wrap" fxLayoutAlign="space-around center">
+  <div fxFlex="30%" fxFlex.xs="50%">
+    <label for="type" [ngClass]="{'set--active': focusedElement === 'type'}"
+           class="label sm-1 primary">{{'CREATE_ITEM.TYPE' }}</label>
+  </div>
+  <div fxFlex="70%" fxFlex.xs="50%" fxLayout="row wrap" fxLayoutAlign="space-around center">
+    <div class="item-list-image" fxFlex="30%" fxFlex.xs="100%">
+      <input id="radio-share" (focus)="focusedElement = 'type'" (blur)="focusedElement = ''" class="regular-radio" type="radio" name="type" required [(ngModel)]="itemObject.type" value="share">
+      <label for="radio-share" class="radio-label label small primary">share</label>
+    </div>
+    <div class="item-list-image" fxFlex="40%" fxFlex.xs="100%">
+      <input id="radio-giveaway" (focus)="focusedElement = 'type'" (blur)="focusedElement = ''" class="regular-radio" type="radio" name="type" required [(ngModel)]="itemObject.type" value="giveaway">
+      <label for="radio-giveaway" class="radio-label label small primary">give away</label>
+    </div>
+    <div class="item-list-image" fxFlex="30%" fxFlex.xs="100%">
+      <input id="radio-sale" (focus)="focusedElement = 'type'" disabled (blur)="focusedElement = ''" class="regular-radio" type="radio" name="type" required [(ngModel)]="itemObject.type" value="sale">
+      <label for="radio-sale" class="radio-label label small primary">sale</label>
+    </div>
+  </div>
+</div>
+<div class="item-tile item-padding ">
   <div class="provide-padding">
     <label for="title" [ngClass]="{'set--active': focusedElement === 'title'}"
            class="label sm-1 primary">{{'CREATE_ITEM.TITLE' }}</label>

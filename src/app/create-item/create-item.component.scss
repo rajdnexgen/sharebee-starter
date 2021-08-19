@@ -21,6 +21,60 @@
     }
   }
 
+  .regular-radio {
+      position: absolute;
+      opacity: 0;
+      + .radio-label {
+        &:after {
+          content: '';
+          background: white;
+          border-radius: 100%;
+          border: 2px solid darken(white, 50%);
+          display: inline-block;
+          width: 1rem;
+          height: 1rem;
+          position: relative;
+          margin-left: 0.5rem;
+          vertical-align: top;
+          cursor: pointer;
+          text-align: center;
+          transition: all 250ms ease;
+        }
+      }
+      &:checked {
+        + .radio-label {
+          &:after {
+            background-color: map_get($color_list, light-grey-op1);
+            box-shadow: inset 0 0 0 4px white;
+          }
+        }
+      }
+      &:focus {
+        + .radio-label {
+          &:after {
+            outline: none;
+            border-color: map_get($color_list, light-grey-op1);
+          }
+        }
+      }
+      &:disabled {
+        + .radio-label {
+          color: darken(white, 20%);
+          &:after {
+            box-shadow: inset 0 0 0 4px white;
+            border-color: darken(white, 20%);
+            background: white;
+          }
+        }
+      }
+      + .radio-label {
+        &:empty {
+          &:after {
+            margin-right: 0;
+          }
+        }
+      }
+    }
   .regular-checkbox {
     outline: none;
     -webkit-appearance: none;
@@ -120,34 +174,11 @@
     background: #ededed;
     outline: none;
     /* padding: 50px; */
-    border-radius: 10px;
+    border-radius: 3rem;
     text-indent: 12px;
     font-size: 18px;
-    color: #666666;
+    color: map_get($color_list, light-grey);
     font-weight: lighter;
-  }
-
-  .item-list {
-    display: flex;
-    align-items: flex-start;
-    flex-wrap: nowrap;
-    height: 100%;
-    justify-content: space-between;
-
-    .item-list__image {
-      width: 30%;
-      height: 130px;
-      margin: 1%;
-      border: 2px dashed rgba(0, 0, 0, 0.49);
-      border-radius: 16px;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background-image: url('../../assets/svg/plus.svg');
-      background-size: 20%;
-      background-repeat: no-repeat;
-      background-position: center center;
-    }
   }
 
   .item-tile {
@@ -210,7 +241,7 @@
     word-wrap: break-word;
     word-break: break-all;
     background: map_get($color_list, input_bg);
-
+    border-radius: 3rem;
     &:focus {
       background: white;
       border: thin solid map_get($color_list, terenary);
@@ -225,11 +256,11 @@
     color: map_get($color_list, terenary);
   }
 
-  .item-info {
-    display: flex;
-    justify-content: center;
-    padding: 5px;
-  }
+  // .item-info {
+  //   display: flex;
+  //   justify-content: center;
+  //   padding: 5px;
+  // }
 
   popup-container {
     .box {
@@ -244,8 +275,15 @@
 
   .button-container {
     margin-top: 10px !important;
-    display: flex;
-    justify-content: space-around !important;
+    bee-btn .bee-btn {
+      width: 100%;
+      height: 3rem;
+      line-height: 1rem;
+      padding: 0;
+        &__primary {
+          box-shadow: none;
+        }
+    }
   }
 
   .provide-margin__button {
@@ -253,15 +291,10 @@
   }
 
   .item-share {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 0 -5px;
+
   }
 
-  .item-share__rate {
-    display: flex;
-    flex-direction: column;
+  .item-share-rate {
     margin: 0 5px;
 
     input[type="number"]::-webkit-inner-spin-button,
@@ -310,15 +343,10 @@
 
   input::placeholder {
     color: map_get($color_list, primary);
-    font-size: map_get($font-list, sm1);
+    font-size: map_get($font-list, small);
     opacity: 0.7;
   }
 
-  .content--selector {
-    font-size: map_get($font-list, small);
-    cursor: pointer;
-    color: map_get($color_list, terenary);
-  }
 }
 
 .onoffswitch {
@@ -411,30 +439,19 @@
 
 @media screen and (max-width: 600px) {
   .app-create-item {
-    width: 100%;
-    padding: 0px;
+    // width: 100%;
+    // padding: 0px;
 
     form {
       padding: 0.5rem;
     }
 
-    .button-container {
-      flex-direction: column-reverse;
-      align-items: center;
-    }
 
     .provide-margin__button {
       margin-bottom: 1rem;
     }
-
-    .item-list {
-      justify-content: center;
-      flex-direction: column;
-      align-items: center;
-
-      .item-list__image {
-        width: auto;
-      }
-    }
   }
+}
+.item-padding {
+  padding: 1rem 0 0 0;
 }

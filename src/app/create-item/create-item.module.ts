@@ -6,6 +6,7 @@ import { ListingDetailComponent } from './listing-detail/listing-detail.componen
 import { ListingInformationComponent } from './listing-information/listing-information.component';
 import { SharedModule } from '../helpers/shared.module';
 import { FormsModule } from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 const CREATE_ITEM_COMPONENT= [
   CreateItemComponent,
@@ -18,6 +19,7 @@ const CREATE_ITEM_COMPONENT= [
   declarations: CREATE_ITEM_COMPONENT,
   imports: [
     CommonModule,
+    FlexLayoutModule,
     FormsModule,
     SharedModule
   ],

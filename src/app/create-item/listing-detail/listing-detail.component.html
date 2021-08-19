@@ -1,41 +1,57 @@
-<div class="item-share">
-  <label class="label md mg5 primary"
-         [ngClass]="{'set--active': itemRentIsActive}">{{'CREATE_ITEM.SHARE_RATE' }}</label>
-  <div class="item-share__lend">
-    <input type="checkbox" class="regular-checkbox" [checked]="lend_free" (change)="lendFree($event)">
-    <span class="lend_text">{{'CREATE_ITEM.LEND_FREE' }}</span>
-    <img class="lend--free__info show--cursor" src="../../assets/svg/know_more.svg"
-         (click)="lendFreeInfo = !lendFreeInfo"/>
+<div class="item-padding" fxLayout="row wrap" fxLayoutAlign="space-around center">
+  <div fxFlex="45%" fxFlex.xs="30%">
+    <label for="type" [ngClass]="{'set--active': focusedElement === 'type'}"
+           class="label sm-1 primary">{{'CREATE_ITEM.SHOWLISTING' }}</label>
+  </div>
+  <div fxFlex="55%" fxFlex.xs="100%" fxLayout="row wrap" fxLayoutAlign="space-around center">
+    <div class="item-list-image" fxFlex="40%" fxFlex.xs="100%">
+      <input id="radio-public" (focus)="focusedElement = 'showlisting'" (blur)="focusedElement = ''" class="regular-radio" type="radio" name="showlisting" required [(ngModel)]="itemObject.showlisting" value="public">
+      <label for="radio-public" class="radio-label label small primary">public site</label>
+    </div>
+    <div class="item-list-image" fxFlex="60%" fxFlex.xs="100%">
+      <input id="radio-private" (focus)="focusedElement = 'showlisting'" (blur)="focusedElement = ''" class="regular-radio" type="radio" name="showlisting" required [(ngModel)]="itemObject.showlisting" value="private">
+      <label for="radio-private" class="radio-label label small primary">private(hive only)</label>
+    </div>
   </div>
 </div>
-<div class="item-share">
-  <div class="item-share__rate">
-    <label class="label sm-1 primary"
-           [ngClass]="{'set--active': focusedElement === 'day_rent'}">{{'CREATE_ITEM.DAY_RATE' }}</label>
-    <input (focus)="focusedElement = 'day_rent'" (blur)="focusedElement = ''" [disabled]="lend_free"
-           type="number"
-           class="input-field sm1" [(ngModel)]="itemObject.rent_rate" name="itemObject.rent">
-    <p class="validation-alert">{{validateItem.rent}}</p>
+<div class="item-padding" fxLayout="row wrap" fxLayoutAlign="space-around center">
+  <div fxFlex="100%" >
+    <label class="label sm-1 mg5 primary"
+         [ngClass]="{'set--active': itemRentIsActive}">{{'CREATE_ITEM.SHARE_RATE' }}</label>
+    <img class="lend--free__info show--cursor" src="../../assets/svg/know_more.svg"
+              (click)="lendFreeInfo = !lendFreeInfo"/>
   </div>
-  <div class="item-share__rate">
-    <label class="label sm-1 primary"
-           [ngClass]="{'set--active': focusedElement === 'week_rent'}">{{'CREATE_ITEM.WEEK_RATE' }}</label>
-    <input (focus)="focusedElement = 'week_rent'" (blur)="focusedElement = ''" [disabled]="lend_free"
-           type="number"
-           class="input-field sm1" [(ngModel)]="itemObject.rent_rate_per_week" name="itemObject.week_rent">
-    <p class="validation-alert">{{validateItem.rent}}</p>
+  <div fxFlex="100%" fxLayout.lt-sm="row wrap" >
+    <div class="item-share-rate" fxFlex="23%" fxFlex.xs="50%">
+      <input (focus)="focusedElement = 'day_rent'" (blur)="focusedElement = ''" [disabled]="lend_free"
+             type="number"
+             placeholder="£ / day"
+             class="input-field sm1" [(ngModel)]="itemObject.rent_rate" name="rent">
+      <p class="validation-alert">{{validateItem.rent}}</p>
+    </div>
+    <div class="item-share-rate" fxFlex="23%" fxFlex.xs="50%">
+      <input (focus)="focusedElement = 'week_rent'" (blur)="focusedElement = ''" [disabled]="lend_free"
+             type="number"
+             placeholder="£ / week"
+             class="input-field sm1" [(ngModel)]="itemObject.rent_rate_per_week" name="week_rent">
+      <p class="validation-alert">{{validateItem.rent}}</p>
+    </div>
+    <div class="item-share-rate" fxFlex="23%" fxFlex.xs="50%">
+      <input (focus)="focusedElement = 'month_rent'" (blur)="focusedElement = ''" [disabled]="lend_free"
+             type="number"
+             placeholder="£ / 28 days"
+             class="input-field sm1" [(ngModel)]="itemObject.rent_rate_per_month" name="month_rent">
+      <p class="validation-alert">{{validateItem.rent}}</p>
+    </div>
+    <div class="item-share__lend" fxFlex="30%" fxFlex.xs="50%">
+      <input id="radio-lend" (focus)="focusedElement = 'lend_for_free'" (blur)="focusedElement = ''" class="regular-radio" type="radio" name="lend_for_free" [checked]="lend_free" [(ngModel)]="itemObject.lend_for_free" value="private">
+      <label for="radio-lend" class="radio-label label small primary">lend for free</label>
+    </div>
   </div>
-  <div class="item-share__rate">
-    <label class="label sm-1 primary"
-           [ngClass]="{'set--active': focusedElement === 'month_rent'}">{{'CREATE_ITEM.MONTH_RATE' }}</label>
-    <input (focus)="focusedElement = 'month_rent'" (blur)="focusedElement = ''" [disabled]="lend_free"
-           type="number"
-           class="input-field sm1" [(ngModel)]="itemObject.rent_rate_per_month" name="itemObject.month_rent">
-    <p class="validation-alert">{{validateItem.rent}}</p>
-  </div>
+
 </div>
 
-<div class="item-tile">
+<!--div class="item-tile">
   <div class="provide-padding">
     <label for="title" [ngClass]="{'set--active': focusedElement === 'visibility'}"
            class="label sm-1 primary">Availability</label>
@@ -51,11 +67,11 @@
     </div>
     <span class="label sm-1 primary label_private">Private</span>
   </div>
-</div>
+</div-->
 
 <div class="category-list-container add-margin-top-15">
   <label class="label sm-1 primary provide-padding-right">{{'CREATE_ITEM.CATEGORY' }}</label>
-  <select class="category-list from-country" [(ngModel)]="itemObject.category" name="itemObject.category">
+  <select class="category-list from-country" [(ngModel)]="itemObject.category" name="category">
     <option *ngFor="let category of categories" [ngValue]="category">{{category}}</option>
   </select>
   <p class="validation-alert">{{validateItem.category}}</p>
@@ -64,6 +80,6 @@
   <label class="label sm-1 primary"
          [ngClass]="{'set--active': focusedElement === 'description'}">{{'CREATE_ITEM.ITEM_DESCRIPTION' }}</label>
   <textarea class="text_area sm1" (focus)="focusedElement = 'description'" (blur)="focusedElement = ''"
-            [(ngModel)]="itemObject.description" name="itemObject.description"></textarea>
+            [(ngModel)]="itemObject.description" name="description"></textarea>
   <p class="validation-alert">{{validateItem.description}}</p>
 </div>

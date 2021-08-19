@@ -145,7 +145,7 @@ export class CreateItemComponent implements OnInit {
         } else if (this.itemObject.title === '' || this.itemObject.title === undefined) {
           this.validateItem['title'] = 'title should not be empty';
         } else {
-          this.previous = 'back';
+          this.previous = 'previous';
           this.currentState = ItemSteps.itemDescription;
         }
       } else if (this.currentState === ItemSteps.itemDescription) {

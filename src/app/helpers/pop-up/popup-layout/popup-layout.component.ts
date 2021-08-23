@@ -6,7 +6,7 @@ import {
   ElementRef,
   HostListener,
   OnInit,
-  Input, ChangeDetectorRef, AfterViewInit, ChangeDetectionStrategy
+  Input, ChangeDetectorRef, AfterViewInit, ChangeDetectionStrategy, Output, EventEmitter
 } from '@angular/core';
 
 @Component({
@@ -16,7 +16,10 @@ import {
       <div model-content>
         <div class="app-pop-up-layout-container" [ngClass]="{'app-pop-up-layout-container--tall': '660px'}">
           <div class="box" #content>
-            <div *ngIf="showLogo" class="logo">
+          <div class="app-pop-up-close" (click)="close()">
+          <img src="../../../../assets/svg/close.svg" alt="close"/>
+        </div>
+          <div *ngIf="showLogo" class="logo">
               <img src="../../../../assets/svg/logo_for_popup.svg" alt="logo"/>
             </div>
             <div>
@@ -38,6 +41,7 @@ export class PopupLayoutComponent implements OnDestroy, OnInit, AfterViewInit {
   @ViewChild('popup') popup;
   // @ts-ignore
   @ViewChild('content') contentElem: ElementRef;
+  @Output() onPopupClose = new EventEmitter<boolean>();
   public windowHeight: number = 0;
   @Input() showLogo = true;
 
@@ -65,7 +69,8 @@ export class PopupLayoutComponent implements OnDestroy, OnInit, AfterViewInit {
   }
 
   close() {
-    this.popup.close();
+    this.onPopupClose.emit(true);
+    // this.popup.close();
   }
 
   ngAfterViewInit() {

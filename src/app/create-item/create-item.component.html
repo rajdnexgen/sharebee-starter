@@ -1,5 +1,5 @@
 <!--<app-header-footer-layout>-->
-<popup-layout class="create--item" fxLayout="row" fxFlex="100%">
+<popup-layout class="create--item" fxLayout="row" fxFlex="100%" (onPopupClose)="closePopup()">
   <section class="app-create-item" fxFlex.lt-sm="100%">
     <form>
       <div *ngIf="currentState === ItemSteps.itemTitle">
@@ -16,7 +16,7 @@
         <div class="circle" [ngClass]="{'terenary':currentState === ItemSteps.itemDescription}"></div>
         <div class="circle" [ngClass]="{'terenary':currentState === ItemSteps.itemValue}"></div>
       </div>
-      <div class="button-container" fxLayout="row wrap" fxLayoutAlign="space-around center">
+      <div class="popup-button-container" fxLayout="row wrap" fxLayoutAlign="space-around center">
 <!--        <button class="button provide-margin__button" (click)="back()">{{previous}}</button>-->
         <bee-btn type="secondary" fxFlex="30%" fxFlex.xs="100%" (click)="back()">{{previous}}</bee-btn>
         <div fxFlex="40%"></div>

@@ -132,6 +132,9 @@ export class CreateItemComponent implements OnInit {
     }
 
   }
+  closePopup() {
+    this.createItemFlag.emit(false);
+  }
 
   // Validate the steps & call api
   createItem() {

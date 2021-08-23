@@ -37,7 +37,7 @@ export class ViewModalComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngOnInit() {
     setTimeout(() => {
-      this.viewRef.detach(0);
+      // this.viewRef.detach(0);
       this.popup_instance = this.popup.create(this.popup_content.nativeElement as any);
     });
   }
@@ -50,6 +50,6 @@ export class ViewModalComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnDestroy() {
-    this.popup_instance.close();
+    //this.popup_instance.close();
   }
 }
